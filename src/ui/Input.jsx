@@ -1,13 +1,11 @@
-import { styled } from "styled-components";
+import styled from "styled-components";
 
-function Input() {
-  const StyledInput = styled.input`
-    padding: 10px;
-    border: solid 2px gray; 
-    margin: 2px;
-  `;
-
-  return <StyledInput type="text" placeholder="Number of Guests" />;
-}
+const Input = styled.input`
+  border: 1px solid var(--color-grey-300);
+  background-color: var(--color-grey-0);
+  border-radius: var(--border-radius-sm);
+  padding: 0.8rem 1.2rem;
+  box-shadow: var(--shadow-sm);
+`;
 
 export default Input;
