@@ -17,10 +17,10 @@ function BookingTableOperations() {
 
       <SortBy
         options={[
-          { value: "startDate-desc", label: "Sort by date (recent first)" },
+          { value: "startDate-des", label: "Sort by date (recent first)" },
           { value: "startDate-asc", label: "Sort by date (earlier first)" },
           {
-            value: "totalPrice-desc",
+            value: "totalPrice-des",
             label: "Sort by amount (high first)",
           },
           { value: "totalPrice-asc", label: "Sort by amount (low first)" },
