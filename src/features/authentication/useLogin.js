@@ -6,16 +6,15 @@ import { toast } from "react-hot-toast";
 export function useLogin() {
   const navigate = useNavigate();
 
-  // manually set some data into the React Query  cache
-  const queryClint = useQueryClient();
+  //? manually set some data into the React Query  cache
+  // const queryClint = useQueryClient();
 
   const { mutate: login, isLoading } = useMutation({
     mutationFn: ({ email, password }) => loginApi({ email, password }),
     onSuccess: (user) => {
-
       //? manually set some data into the React Query  cache
-      queryClint.setQueriesData(["user"], user);
-      navigate("/dashboard");
+      // queryClint.setQueryData(["user"], user.user);
+      navigate("/dashboard", { replace: true });
     },
     onError: (err) => {
       console.log("Error", err);
