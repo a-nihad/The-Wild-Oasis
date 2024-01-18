@@ -36,13 +36,7 @@ const Header = styled.header`
     width: 3.2rem;
   }
 
-  & div:first-child {
-    display: flex;
-    align-items: center;
-    gap: 1.6rem;
-    font-weight: 600;
-    font-size: 1.8rem;
-  }
+  
 
   & span {
     font-family: "Sono";
