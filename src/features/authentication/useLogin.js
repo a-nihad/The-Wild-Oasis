@@ -7,13 +7,13 @@ export function useLogin() {
   const navigate = useNavigate();
 
   //? manually set some data into the React Query  cache
-  // const queryClint = useQueryClient();
+  const queryClint = useQueryClient();
 
   const { mutate: login, isLoading } = useMutation({
     mutationFn: ({ email, password }) => loginApi({ email, password }),
     onSuccess: (user) => {
       //? manually set some data into the React Query  cache
-      // queryClint.setQueryData(["user"], user.user);
+      queryClint.setQueryData(["user"], user.user);
       navigate("/dashboard", { replace: true });
     },
     onError: (err) => {
