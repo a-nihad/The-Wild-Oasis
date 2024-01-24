@@ -6,7 +6,7 @@ import {
   HiOutlineChartBar,
 } from "react-icons/hi2";
 
-function Stats({ bookings, confirmedStays, numDays, cabinCount }) {
+function Stats({ bookings, confirmedStays = {}, numDays, cabinCount }) {
   //1.
   const numBookings = bookings.length;
 
@@ -14,7 +14,7 @@ function Stats({ bookings, confirmedStays, numDays, cabinCount }) {
   const sales = bookings.reduce((acc, cur) => acc + cur.totalPrice, 0);
 
   //3.
-  const checkins = confirmedStays.length || 0;
+  const checkins = confirmedStays.length;
 
   //4.
   // num checked in night / all available nights (num days * num cabins )

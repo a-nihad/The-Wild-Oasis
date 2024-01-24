@@ -15,7 +15,7 @@ export async function getBookings({ filter, sortBy, page }) {
     query = query.order(sortBy.field, {
       ascending: sortBy.direction === "asc",
     });
- 
+
   if (page) {
     const from = (page - 1) * PAGE_SIZE;
     const to = page * PAGE_SIZE - 1;
@@ -67,14 +67,14 @@ export async function getBookingsAfterDate(date) {
 // Returns all STAYS that are were created after the given date
 export async function getStaysAfterDate(date) {
   const { data, error } = await supabase
-    .from("bookings") 
+    .from("bookings")
     .select("*, guests(fullName)")
     .gte("startDate", date)
-    .lte("startDate", getToday());
+    .lte("startDate", getToday({ end: true }));
 
   if (error) {
     console.error(error);
-    throw new Error("Bookings could not get loaded");
+    throw new Error("Stays could not get loaded");
   }
 
   return data;
@@ -98,6 +98,7 @@ export async function getStaysTodayActivity() {
     console.error(error);
     throw new Error("Bookings could not get loaded");
   }
+  console.log(data);
   return data;
 }
 
